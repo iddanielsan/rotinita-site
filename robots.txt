@@ -1,0 +1,7 @@
+# Rotinita — Rotinas Visuais
+# https://rotinita.com.br
+
+User-agent: *
+Allow: /
+
+Sitemap: https://rotinita.com.br/sitemap.xml

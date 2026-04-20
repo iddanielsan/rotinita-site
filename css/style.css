@@ -95,14 +95,14 @@ h4 { font-size: 1.1rem; font-family: var(--font-body); font-weight: 600; }
 
 p { color: var(--color-text-secondary); }
 
-.placeholder {
-  background: var(--color-warm-soft);
+.text-link {
   color: var(--color-accent);
-  padding: 2px 8px;
-  border-radius: 6px;
-  font-weight: 500;
-  font-size: 0.9em;
-  white-space: nowrap;
+  text-decoration: underline;
+  text-underline-offset: 0.14em;
+}
+
+.text-link:hover {
+  color: var(--color-accent-hover);
 }
 
 /* --- Layout --- */
@@ -153,19 +153,13 @@ section {
   font-weight: 700;
   font-size: 1.25rem;
   color: var(--color-text);
+  flex-shrink: 0;
 }
 
-.logo-icon {
-  width: 36px;
-  height: 36px;
-  background: linear-gradient(135deg, var(--color-accent), var(--color-warm));
-  border-radius: var(--radius-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-  color: white;
-  flex-shrink: 0;
+.logo-image {
+  display: block;
+  width: clamp(148px, 22vw, 184px);
+  height: auto;
 }
 
 .nav-desktop {
@@ -646,10 +640,11 @@ section {
 .footer-brand .logo {
   color: white;
   margin-bottom: var(--space-sm);
+  display: inline-flex;
 }
 
-.footer-brand .logo-icon {
-  background: linear-gradient(135deg, var(--color-accent), var(--color-warm));
+.logo-image--footer {
+  width: min(188px, 100%);
 }
 
 .footer-brand p {
@@ -692,6 +687,16 @@ section {
 .footer-bottom p {
   font-size: 0.82rem;
   color: rgba(255, 255, 255, 0.35);
+}
+
+.footer-bottom a {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: underline;
+  text-underline-offset: 0.14em;
+}
+
+.footer-bottom a:hover {
+  color: white;
 }
 
 /* --- Legal Pages --- */
