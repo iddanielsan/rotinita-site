@@ -4,9 +4,8 @@
     "target": {
       "namespace": "android_app",
       "package_name": "br.com.rotinita",
-      "sha256_cert_fingerprints": [
-        "14:ED:3A:43:DE:F0:A7:1F:BD:79:1E:81:D2:D7:94:6A:C1:C2:42:4D:4A:DF:BB:BB:38:FB:35:2E:25:DC:35:31"
-      ]
+      "sha256_cert_fingerprints":
+        ["9A:8F:C8:3C:C3:54:66:F3:31:BE:84:83:DB:3A:0E:4A:25:7D:02:4E:BB:6B:49:CE:D6:5B:71:F0:15:67:20:F9"]
     }
   }
 ]
