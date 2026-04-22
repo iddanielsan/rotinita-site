@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "br.com.rotinita",
+      "sha256_cert_fingerprints": [
+        "14:ED:3A:43:DE:F0:A7:1F:BD:79:1E:81:D2:D7:94:6A:C1:C2:42:4D:4A:DF:BB:BB:38:FB:35:2E:25:DC:35:31"
+      ]
+    }
+  }
+]

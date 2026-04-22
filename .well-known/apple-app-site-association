@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "9H8T8FF4MX.br.com.rotinita",
+        "paths": ["/auth/*"]
+      }
+    ]
+  }
+}
