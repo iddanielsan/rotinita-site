@@ -5,13 +5,37 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // --- Hero video playback ---
+  const heroVideo = document.querySelector('.hero-video');
+  if (heroVideo) {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const syncVideoPlayback = () => {
+      if (reducedMotion.matches) {
+        heroVideo.pause();
+        return;
+      }
+
+      heroVideo.play().catch(() => {});
+    };
+
+    reducedMotion.addEventListener('change', syncVideoPlayback);
+    syncVideoPlayback();
+  }
+
   // --- Header scroll effect ---
   const header = document.querySelector('.site-header');
   if (header) {
+    const hero = document.querySelector('.hero');
     const onScroll = () => {
-      header.classList.toggle('scrolled', window.scrollY > 10);
+      const overHero = header.classList.contains('site-header--hero')
+        && hero
+        && hero.getBoundingClientRect().bottom > header.offsetHeight;
+
+      header.classList.toggle('over-hero', Boolean(overHero));
+      header.classList.toggle('scrolled', !overHero && window.scrollY > 10);
     };
     window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
     onScroll();
   }
 
@@ -22,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     toggle.addEventListener('click', () => {
       const open = mobileNav.classList.toggle('open');
       toggle.setAttribute('aria-expanded', open);
+      header?.classList.toggle('menu-open', open);
       document.body.style.overflow = open ? 'hidden' : '';
     });
 
@@ -29,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
       link.addEventListener('click', () => {
         mobileNav.classList.remove('open');
         toggle.setAttribute('aria-expanded', 'false');
+        header?.classList.remove('menu-open');
         document.body.style.overflow = '';
       });
     });
