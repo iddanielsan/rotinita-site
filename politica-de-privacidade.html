@@ -89,7 +89,7 @@
         <h1 class="fade-up">Política de Privacidade</h1>
         <p class="fade-up stagger-1"><strong>Rotinita — Rotinas Visuais</strong></p>
         <div class="legal-updated fade-up stagger-2">
-          📅 Última atualização: 15 de maio de 2026
+          📅 Última atualização: 28 de setembro de 2026
         </div>
       </div>
     </section>
@@ -185,6 +185,14 @@
           Podemos tratar dados técnicos como registros de requisições, erros, performance, eventos de segurança, métricas de uso, identificadores técnicos, informações do dispositivo ou sistema operacional, versão do app e dados necessários para diagnóstico. O painel administrativo também registra logs de auditoria sobre ações de suporte, cobrança e operação, como criação, alteração, exclusão ou concessão de plano.
         </p>
 
+        <h3>3.9 Integração opcional com a Alexa</h3>
+        <p>
+          Quando o responsável vincula sua conta à skill Rotinita, tratamos identificadores da conta Amazon e do dispositivo Alexa, tokens próprios da integração, preferências de aviso, contexto da conversa e registros das operações. A skill consulta os nomes das crianças, títulos, horários e etapas das rotinas a que esse responsável tem acesso para conduzi-las por voz e atualizar seu progresso. O Rotinita recebe os comandos interpretados pela Alexa, mas não grava o áudio da conversa nessa integração.
+        </p>
+        <p>
+          Se o responsável ativar um aviso no app e confirmar sua criação na skill, enviamos à Amazon o texto do lembrete, os dias, o horário e o fuso do dispositivo. O aviso pode ser ouvido ou visto por outras pessoas próximas ao dispositivo. Ao desconectar a conta, revogamos os tokens e solicitamos a remoção dos lembretes; registros técnicos mínimos podem permanecer até a confirmação do cancelamento.
+        </p>
+
         <!-- 4 -->
         <h2 id="pp-4">4. Câmera, Imagens e Geração por IA</h2>
 
@@ -276,7 +284,8 @@
           <li><strong>Infraestrutura de aplicação, banco de dados e armazenamento:</strong> para hospedar o gateway, banco de dados, arquivos, imagens e backups, incluindo serviços compatíveis com S3/MinIO e infraestrutura de nuvem ou Kubernetes.</li>
           <li><strong>Serviços de autenticação e segurança:</strong> para gerenciar login, confirmação de conta, recuperação de senha, tokens de sessão, controles de acesso e prevenção a abuso.</li>
           <li><strong>Serviços de e-mail transacional:</strong> como Resend, para enviar confirmação de cadastro, recuperação de senha e comunicações operacionais.</li>
-          <li><strong>Serviços de inteligência artificial:</strong> como OpenAI, quando o usuário solicita geração de imagens ou rotinas por IA.</li>
+          <li><strong>Serviços de inteligência artificial:</strong> como OpenAI, quando o usuário solicita geração de imagens ou rotinas por IA ou usa uma frase livre na skill Alexa para localizar uma rotina. Nesse último caso, enviamos a frase interpretada pela Alexa e os identificadores, títulos e nomes de crianças das rotinas acessíveis à conta vinculada.</li>
+          <li><strong>Amazon Alexa:</strong> para vincular a conta do responsável, processar comandos da skill e criar, atualizar ou cancelar os lembretes confirmados pelo responsável, conforme a seção 3.9.</li>
           <li><strong>Serviços de monitoramento, logs e diagnóstico:</strong> como Sentry, para identificar erros, medir performance, investigar incidentes e manter a estabilidade do serviço.</li>
           <li><strong>Lojas de aplicativos e provedores de cobrança:</strong> Apple App Store e Google Play, para validar compras, receber notificações de assinatura e manter o acesso aos planos contratados.</li>
           <li><strong>Equipe interna autorizada e painel administrativo:</strong> para suporte, cobrança, operação, auditoria e resolução de incidentes, sempre com controles de acesso compatíveis com a função exercida.</li>
