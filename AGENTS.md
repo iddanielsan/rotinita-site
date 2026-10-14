@@ -22,3 +22,11 @@ This repository is a static Portuguese-language website for Rotinita. `CNAME` an
 - Preview locally with `python3 -m http.server 8765 --bind 127.0.0.1` and inspect the page in a browser. The installed `tidy` does not recognize this site's HTML5 semantic tags, so use browser rendering for HTML checks.
 - Before linking the privacy policy in the Alexa skill store, keep its description of parent account linking, voice interpretation, reminder text and cancellation consistent with `routine-gateway/docs/alexa-certificacao.md`. The public policy must be deployed separately from the gateway.
 - Validate `sitemap.xml` with `xmllint --noout sitemap.xml` when available; parse `site.webmanifest` and the landing page JSON-LD as JSON after metadata edits.
+- The `como-funciona` demonstration uses a Flutter component capture with fictional
+  repositories/data, not a family account. Preserve its visible disclosure and
+  the provenance in `assets/images/README.md`. It does not prove release state,
+  clinical efficacy or completed purchases. Keep the Free entry separate from
+  Plus expansion; individual price and terms come from the store offer.
+- GitHub Pages was verified as deploying `main` from `/` (root). A push to that
+  branch starts publication; verify the Pages run and public content afterward.
+  Do not include unrelated dirty files in a commercial publication.

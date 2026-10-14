@@ -508,6 +508,61 @@ section {
 }
 
 /* --- Feature Cards Section --- */
+.routine-example {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 320px);
+  gap: var(--space-xl);
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto var(--space-xl);
+}
+
+.routine-example-copy h2 {
+  margin-bottom: var(--space-md);
+  text-wrap: balance;
+}
+
+.routine-example-copy p {
+  max-width: 58ch;
+  margin-bottom: var(--space-md);
+  font-size: 1.05rem;
+}
+
+.routine-example-copy .btn {
+  margin-top: var(--space-xs);
+  color: var(--color-text);
+}
+
+.routine-example-figure {
+  margin: 0;
+  text-align: center;
+}
+
+.routine-example-figure img {
+  width: 260px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: var(--radius-md);
+}
+
+.routine-example-figure figcaption {
+  margin-top: var(--space-sm);
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 700px) {
+  .routine-example {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .routine-example-figure img {
+    width: min(260px, 100%);
+  }
+}
+
 .section-header {
   text-align: center;
   max-width: 600px;
@@ -736,6 +791,7 @@ section {
 
 .cta-card .btn-primary {
   background: var(--color-accent);
+  color: var(--color-text);
 }
 
 .cta-card .btn-secondary {
@@ -746,6 +802,27 @@ section {
 .cta-card .btn-secondary:hover {
   border-color: rgba(255, 255, 255, 0.5);
   color: white;
+}
+
+.cta-card .cta-support {
+  margin: var(--space-lg) auto 0;
+  font-size: 0.95rem;
+}
+
+.cta-support a {
+  color: white;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.routine-example :focus-visible {
+  outline: 3px solid var(--color-text);
+  outline-offset: 4px;
+}
+
+.cta-card :focus-visible {
+  outline: 3px solid var(--color-warm);
+  outline-offset: 4px;
 }
 
 /* --- Footer --- */
