@@ -9,17 +9,29 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroVideo = document.querySelector('.hero-video');
   if (heroVideo) {
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const connection = navigator.connection;
     const syncVideoPlayback = () => {
-      if (reducedMotion.matches) {
+      if (reducedMotion.matches || connection?.saveData || document.hidden) {
         heroVideo.pause();
         return;
       }
 
+      const source = heroVideo.querySelector('source[data-src]');
+      if (source && !source.hasAttribute('src')) {
+        source.src = source.dataset.src;
+        heroVideo.load();
+      }
       heroVideo.play().catch(() => {});
     };
 
     reducedMotion.addEventListener('change', syncVideoPlayback);
-    syncVideoPlayback();
+    connection?.addEventListener('change', syncVideoPlayback);
+    document.addEventListener('visibilitychange', syncVideoPlayback);
+    if (document.readyState === 'complete') {
+      syncVideoPlayback();
+    } else {
+      window.addEventListener('load', syncVideoPlayback, { once: true });
+    }
   }
 
   // --- Header scroll effect ---
