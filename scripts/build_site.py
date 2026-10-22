@@ -4,6 +4,7 @@
 import json
 from html.parser import HTMLParser
 from pathlib import Path
+import re
 import shutil
 from urllib.parse import unquote, urlsplit
 import xml.etree.ElementTree as ET
@@ -12,8 +13,9 @@ import xml.etree.ElementTree as ET
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "_site"
 ROOT_FILES = {"CNAME", ".nojekyll", "robots.txt", "sitemap.xml", "site.webmanifest", "browserconfig.xml"}
-ASSET_SUFFIXES = {".css", ".js", ".svg", ".png", ".jpg", ".webp", ".mp4", ".ico"}
+ASSET_SUFFIXES = {".css", ".js", ".svg", ".png", ".jpg", ".webp", ".mp4", ".ico", ".woff2"}
 ASSOCIATIONS = {"apple-app-site-association", "assetlinks.json"}
+FONT_LICENSES = {"assets/fonts/fraunces-OFL.txt", "assets/fonts/outfit-OFL.txt"}
 
 
 def public_files():
@@ -27,7 +29,7 @@ def public_files():
             if directory == ".well-known":
                 if path.name in ASSOCIATIONS:
                     yield path
-            elif path.suffix in ASSET_SUFFIXES | {".html"}:
+            elif path.suffix in ASSET_SUFFIXES | {".html"} or path.relative_to(ROOT).as_posix() in FONT_LICENSES:
                 yield path
 
 
@@ -92,6 +94,16 @@ def validate():
             if url.fragment and target in pages:
                 assert unquote(url.fragment) in pages[target].ids, f"Missing anchor: {reference}"
     assert pages[(OUTPUT / "auth/callback/index.html").resolve()].noindex
+    for path in OUTPUT.rglob("*.css"):
+        for reference in re.findall(r"url\(['\"]?([^)'\"]+)", path.read_text()):
+            url = urlsplit(reference)
+            if not url.scheme and not url.netloc and url.path:
+                target = ((OUTPUT if url.path.startswith("/") else path.parent) / url.path.lstrip("/")).resolve()
+                assert target.is_relative_to(OUTPUT.resolve()) and target.is_file(), f"CSS reference: {reference}"
+    for name in FONT_LICENSES:
+        assert "SIL OPEN FONT LICENSE" in (OUTPUT / name).read_text()
+    for path in (OUTPUT / "assets/fonts").glob("*.woff2"):
+        assert path.read_bytes()[:4] == b"wOF2", f"Invalid WOFF2: {path}"
     for name in ASSOCIATIONS:
         json.loads((OUTPUT / ".well-known" / name).read_text())
     json.loads((OUTPUT / "site.webmanifest").read_text())

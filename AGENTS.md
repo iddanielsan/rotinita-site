@@ -60,7 +60,10 @@ This repository is a static Portuguese-language website for Rotinita. `CNAME` an
   `../docs/seo-implementacao-20261022.md` for evidence and remaining checks.
 - Keep essential content visible by default. Hero playback respects reduced
   motion, data saving and page visibility; the poster is available before the
-  video loads. Fonts load from HTML rather than a CSS `@import` chain.
+  video loads. Fraunces/Outfit WOFF2 files are served locally from `assets/fonts/`,
+  with normal variable weights 400–700, `font-display: swap` and Latin preloads.
+  Keep OFL licenses in the public artifact and provenance in the fonts README.
+  Do not reintroduce a blocking Google Fonts CSS request or CSS `@import` chain.
 - Smart App Banner uses the verified App Store ID `6761869737`; do not add an
   `app-argument` for unsupported routes. Structured data connects Organization,
   WebSite and SoftwareApplication without invented ratings or reviews.
