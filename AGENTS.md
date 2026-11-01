@@ -14,6 +14,11 @@ This repository is a static Portuguese-language website for Rotinita. `CNAME` an
 ## Editing and verification
 
 - Preserve the existing Portuguese copy style and the Fraunces/Outfit typography and colors in `css/style.css`.
+- Describe concrete actions in family-facing copy. Avoid promises of a routine
+  "sem estresse" or guaranteed results for neurodivergent children. Keep the
+  established brand headline, illustrative disclosures and Free/Plus distinction.
+  Editorial changes do not validate privacy claims or authorize publication;
+  see WS-065 in `../docs/decisoes.md`.
 - Keep page titles, descriptions, social tags, structured data, store links, and the sitemap consistent with the published content.
 - The official Instagram is `https://www.instagram.com/rotinita/`, supplied by
   the owner. Keep it in the home page publisher's `Organization.sameAs` and in
