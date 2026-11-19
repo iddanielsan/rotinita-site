@@ -20,6 +20,14 @@ This repository is a static Portuguese-language website for Rotinita. `CNAME` an
   Editorial changes do not validate privacy claims or authorize publication;
   see WS-065 in `../docs/decisoes.md`.
 - Keep page titles, descriptions, social tags, structured data, store links, and the sitemap consistent with the published content.
+- Use the registered legal name `ROTINITA TECNOLOGIA DA INFORMACAO LTDA` and
+  CNPJ `70.211.725/0001-04` in the public footers, legal pages and home
+  `Organization` structured data. The full registered address appears in the
+  home footer and Terms. Preserve the legal URLs used by the app and Alexa.
+  For changes to legal identity, align the effective date shown in the two
+  documents with the release and update the sitemap. The public notice and
+  any direct communication to account holders have separate evidence.
+  See WS-074 in `../docs/decisoes.md`.
 - The official Instagram is `https://www.instagram.com/rotinita/`, supplied by
   the owner. Keep it in the home page publisher's `Organization.sameAs` and in
   the home/legal footer links (`rel="me"`). Reuse the existing footer styles;
